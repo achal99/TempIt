@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href='../static/style/w3.css'>
+<link rel="stylesheet" href='../static/style/loginstyles.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  html,
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Roboto", sans-serif
+  }
+</style>
+
+<body class="w3-light-grey">
+
+  <!-- Page Container -->
+  <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+    <!-- The Grid -->
+    <div class="w3-row-padding">
+
+      <!-- Left Column -->
+      <div class="w3-third">
+
+        <div class="w3-white w3-text-grey w3-card-4">
+          <div class="w3-display-container">
+            <img src="../static/images/img.jpg" style="margin-left: 27%;width:50%;height:auto" alt="Avatar">
+            <div class="w3-display-bottomleft w3-container w3-text-black">
+            </div>
+          </div>
+          <div class="w3-container">
+            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{name}}</p>
+            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Ann Arbor, MI</p>
+            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{email}}</p>
+            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{industry}}</p>
+            <hr>
+
+            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Ratings</b></p>
+            <p>Friendliness</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+            </div>
+            <p>Workload</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+                <div class="w3-center w3-text-white">80%</div>
+              </div>
+            </div>
+            <p>Expectations</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
+            </div>
+            <br>
+
+          </div>
+        </div><br>
+
+        <!-- End Left Column -->
+      </div>
+
+      <!-- Right Column -->
+      <div class="w3-twothird">
+
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-calendar  fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Calendar
+          <button onclick = "signOut()" style = "font-size: 12pt;background-color: #DC143C" id = "logo" class = "create">Log Out </button> 
+          <button style = "margin-right:10px;font-size: 12pt" id = "createListing" class = "create">Create Job Listing </button></h2>
+          
+          <div class="w3-container">
+            <h5 class="w3-text-blue"><b>Barista</b></h5>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Tomorrow</h6>
+            <p><span class="w3-tag w3-teal w3-round">2-5 pm</span> Jon Walker </p>
+            <p><span class="w3-tag w3-teal w3-round">5-8 pm</span> Jane Doe
+            </p>
+            <hr>
+          </div>
+          <div class="w3-container">
+            <h5 class="w3-text-blue"><b>Cleaning Staff</b></h5>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Tomorrow</h6>
+            <p><span class="w3-tag w3-teal w3-round">2-5 pm</span> Jon Walker </p>
+            <p><span class="w3-tag w3-teal w3-round">5-8 pm</span> Jane Doe
+            </p>
+            <hr>
+          </div>
+          <div class="w3-container">
+            <h5 class="w3-text-blue"><b>Warehouse Reorganization</b></h5>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Tomorrow</h6>
+            <p><span class="w3-tag w3-teal w3-round">9-11 am</span> Jon Walker </p>
+            <p><span class="w3-tag w3-teal w3-round">5-8 pm</span> Jane Doe
+            </p>
+            <hr>
+          </div>
+        </div>
+
+        <div class="w3-container w3-card w3-white">
+
+        </div>
+
+        <!-- End Right Column -->
+      </div>
+
+      <!-- End Grid -->
+    </div>
+    
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+      <div class="modal-content animate">
+      <div class="modal-content">
+
+      <span class="close">&times;</span>
+      <form method="POST" action="/newListing">
+      <div class = "form_box">
+        <b>Title</b>
+          <input type="text" name="jl-title" id = "reg-title">
+        <b>Total Hours Needed</b>
+          <input type="text" name="jl-totalHours" id = "reg-totalHours">
+        <b>Wage ($/hr)</b>
+          <input type="text" name="jl-wage" id = "reg-wage">
+        <b>Job Start Date (mm/dd/yyyy)</b>
+          <input type="text" name="jl-startDate" id = "reg-jobStart">
+        <b>Shifts (Begin time, End time)</b>
+          <input type="text" name="jl-shifts" id = "reg-shifts">
+        <b>Description </b>
+          <input type="text" name="jl-description" id = "reg-description">
+        <button type="submit">Create</button>
+      </form>
+      </div>
+    </div>
+
+    </div>
+  <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+    <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD_ztd1-DlUWBFSNXTBWdYAnwus6WLOW0k",
+    authDomain: "tempit-initial.firebaseapp.com",
+    databaseURL: "https://tempit-initial.firebaseio.com",
+    projectId: "tempit-initial",
+    storageBucket: "tempit-initial.appspot.com",
+    messagingSenderId: "728716820991"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src = "../static/style/index.js"></script>
+
+    <script>
+      // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("createListing");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal 
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    </script>
+    <!-- End Page Container -->
+  </div>
+
+  <footer class="w3-container w3-teal w3-center w3-margin-top" style="padding-bottom:86px">
+    <p> </p>
+    
+    
+
+  </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+
+	<html>
+    <head>
+		<title>Find a job!</title>
+		<meta charset="UTF-8" />
+		<!--stylesheet for the footer-->
+	<link rel= "stylesheet" href= "../static/style/job_lists_style.css">
+
+	</head>
+
+    <body>
+    	<div class="intro">
+    		<h1 id="page-title">Jobs Hand-picked Just For You</h1>
+    	</div>
+
+
+        <div id="job_list_container" class>
+			{% for job in jobs|sort(attribute='date') %} 
+			<button class="image jobID{{job.jobID}}" type="button" onclick=document.getElementById("myModal{{job.jobID}}").style.display='block'><img src="static/images/{{ job.image }}"></button>
+
+
+			<div class="description jobID{{job.jobID}}">
+				<h2>{{ job.title }}</h2>
+				<p>{{ job.description }}</p>
+			</div>
+			<div class="hourly-pay jobID{{job.jobID}}">
+				<h4>Pay per hour</h4>
+				<h2 class="number">${{ job.pay }}</h2>
+			</div>
+			<div class="hours jobID{{job.jobID}}">
+				<h4>Work hours needed</h4>
+				<h2 class="number">{{ job.hours }}</h2>
+			</div>
+			<div class="gap"></div>
+
+			<!-- The Modal -->
+<div id="myModal{{job.jobID}}" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('myModal{{job.jobID}}').style.display = 'none' ">&times;</span>
+    <div class="popup-content">
+    	<img class="inside_pop" src="static/images/{{ job.image }}">
+    	<div class="big_info_popup">
+    		<h2>{{job.title}}</h2>
+    		<h3>Pay per hour: ${{job.pay}}</h3>
+    	</div>
+
+    	<div class="descrip_popup">
+    		<h2>Description</h2>
+    		<p>{{job.description}}</p>
+    	</div>
+
+    	<div class="calendar_popup"> <div class="nested_grid">
+    		<h1>Please selected available times below</h1>
+    		<div class="available-times"> 
+    			<ul class="calendar_element">
+				<form method="POST" action="/chooseJob">
+					<input name="jobId" value = "{{job.jobID}}" style = "display:none">
+    					<li class="calendar_element"><button class="calendar_element" type="submit"><h4 class="time">{{job.schedule}}</h4></button></li>
+					</ul>
+				</form>
+
+    		</div> 	</div>		
+    	</div>
+    </div>
+  </div>
+
+</div>
+
+			{% endfor %}
+		</div>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+<script>
+	// Initialize Firebase
+	var config = {
+	apiKey: "AIzaSyD_ztd1-DlUWBFSNXTBWdYAnwus6WLOW0k",
+	authDomain: "tempit-initial.firebaseapp.com",
+	databaseURL: "https://tempit-initial.firebaseio.com",
+	projectId: "tempit-initial",
+	storageBucket: "tempit-initial.appspot.com",
+	messagingSenderId: "728716820991"
+	};
+	firebase.initializeApp(config);
+</script>
+<script src="../static/style/index.js"></script>
+
+
+<script>// Get the modal
+function add_popop(evt) {
+	// Get the button that opens the modal
+	var btn = document.getElementById("myBtn");
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+	// When the user clicks on the button, open the modal 
+	btn.onclick = function() {
+	    modal.style.display = "block";
+	}
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	    modal.style.display = "none";
+	}
+	// When the user clicks anywhere outside of the modal, close i
+}
+window.onclick = function(event) {
+	if (event.target.id.toString().substring(0,6) === "myModal"){
+		even.target.style.display.block = none;
+	}
+}
+	</script>
+
+		  <script>
+		  	
+		  </script>
+    </body>
+</html>

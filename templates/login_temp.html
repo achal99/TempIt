@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to TempIT!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel = "stylesheet" type = "text/css" href ="../static/style/loginstyles_temp.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+<div id = "background">
+  <img src = "../static/images/logo.png" id = "logo_tl">
+  <div class = "big_text" style = "color: white">
+    <p style = "margin-top: 32px"> <strong> Finding work </strong> <weak> made </weak> <strong> easy. </strong></p>
+    <p><i>Built for students, by students.</i></p>
+    <p>Coming near you soon.</p>
+  </div>
+  
+
+<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD_ztd1-DlUWBFSNXTBWdYAnwus6WLOW0k",
+    authDomain: "tempit-initial.firebaseapp.com",
+    databaseURL: "https://tempit-initial.firebaseio.com",
+    projectId: "tempit-initial",
+    storageBucket: "tempit-initial.appspot.com",
+    messagingSenderId: "728716820991"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src = "../static/style/index.js"></script>
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+var modal2 = document.getElementById('id02');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+      if (event.target == modal2) {
+        modal2.style.display = "none";
+      }
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+     
+    
+}
+</script>
+</div>
+
+
+<script>
+  function openCity(evt, cityName, content, links) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName(content);
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName(links);
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  function showFirst(id, links, login){
+    document.getElementById(id).style.display='block';
+    document.getElementById(login).style.display= 'block';
+    types = document.getElementsByClassName(links);
+    types[0].className+= " active";
+    types[1].className = types[1].className.replace(" active", "");
+  }
+</script>
+    
+
+
+<footer><p id = "copyright"> TempIT &copy 2018 </p></footer>
+</html>

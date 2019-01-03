@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to TempIT!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel = "stylesheet" type = "text/css" href ="../static/style/loginstyles.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+<div id = "background">
+  <img src = "../static/images/logo.png" id = "logo_tl">
+  <div class = "big_text" style = "color: white">
+    <p style = "margin-top: 32px"> <strong> Finding work </strong> <weak> made </weak> <strong> easy. </strong></p>
+    <p><i>Built for students, by students.</i></p>
+  </div>
+  <div id = "button_grid">
+    <span></span>
+    <button class ="loginbtn1"onclick="showFirst('id01', 'tablinks', 'Login')" style="width:auto;">Students</button>
+    <button class ="loginbtn2" onclick="showFirst('id02', 'tablinks2', 'Login2')" style="width:auto;">Employers</button>
+    <span></span>
+  </div>
+</div>
+<div id="id01" class="modal">
+  
+  <div class="modal-content animate">
+  
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'Login', 'tabcontent', 'tablinks')">Login</button>
+    <button class="tablinks" onclick="openCity(event, 'Register', 'tabcontent', 'tablinks')">Register</button>
+  </div>
+
+  <div id= "Login" class="tabcontent">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
+      <i class="fas fa-user-circle user_type_icon"></i>
+    </div>
+
+    <div class="container">
+      <form method="POST" action="/authenticateUser">
+        <div class = "form_box">
+          <b>Email</b>
+          <input id="student_email_field" type="text" placeholder="Enter Email" name="uname">
+
+          <b>Password</b>
+          <input id = "student_password_field" type="password" placeholder="Enter Password" name="psw">
+        </div>
+      
+      <!-- <input type="checkbox" checked="checked" name="remember" id = "checkbox"> Remember me -->
+      <button type="submit">Login</button>
+</form>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </div>
+
+  <div id="Register" class="tabcontent"> <!-- Name Password Email  -->
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
+      <i class="fas fa-user-circle user_type_icon"></i>
+    </div>
+    <form method="POST" action="/newUser">
+      <div class = "form_box">
+        <b>First Name</b>
+          <input id = "reg-student-fname" name="stu-fname" type="text">
+        <b>Last Name</b>
+          <input id = "reg-student-lname" name="stu-lname" type="text">
+        <b>Email</b>
+          <input id = "reg-student-email" name="stu-email" type="text">
+        <b>Phone Number</b>
+          <input id = "reg-student-phone" name="stu-phone" type="text">
+        <b>Password</b>
+          <input id = "reg-student-password" name="stu-psw" type="password">
+        <b>Age</b>
+          <input id = "reg-student-age" type="text" name="stu-age"id = "age_box">
+        <b>List Skills (separated by comma)</b>
+          <input type="text" name="stu-skills" id = "reg-student-skills">
+      <button type="submit">Register</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+
+</div>
+
+<div id="id02" class="modal">
+  
+  <div class="modal-content animate">
+  
+  <div class="tab">
+    <button class="tablinks2" onclick="openCity(event, 'Login2', 'tabcontent2', 'tablinks2')">Login</button>
+    <button class="tablinks2" onclick="openCity(event, 'Register2', 'tabcontent2', 'tablinks2')">Register</button>
+  </div>
+
+  <div id= "Login2" class="tabcontent2">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
+      <i class="fas fa-building user_type_icon"></i>
+    </div>
+
+    <div class="container">
+      <form method="POST" action="/authenticateCompany">
+        <div class = "form_box">
+          <b>Email</b>
+          <input id = "company_email_field" type="text" placeholder="Enter Email" name="uname" required>
+
+          <b>Password</b>
+          <input id = "company_password_field" type="password" placeholder="Enter Password" name="psw" required>
+        </div>
+      <!-- <input type="checkbox" checked="checked" name="remember" id = "checkbox"> Remember me -->
+      <button type="submit" >Login</button>
+      </form>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </div>
+
+  <div id="Register2" class="tabcontent2"> <!-- Name Password Email  -->
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
+      <i class="fas fa-building user_type_icon"></i>
+    </div>
+    <form method="POST" action="/newCompany">
+      <div class = "form_box">
+        <b>Company Name</b>
+          <input type="text" name="cmp-cname" id = "reg-company-name" required>
+        <b>Email</b>
+          <input type="text" name="cmp-email" id = "reg-company-email" required>
+        <b>Phone Number</b>
+          <input id = "reg-company-phone" name="cmp-phone" type="text" required>
+        <b>Password</b>
+          <input type="password" name="cmp-psw" id = "reg-company-password" required>
+        <b>Industry</b>
+          <input type="text" name="cmp-industry" id = "reg-company-industry" required>
+        <button type="submit">Register</button>
+      </div>
+  </form>
+  </div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD_ztd1-DlUWBFSNXTBWdYAnwus6WLOW0k",
+    authDomain: "tempit-initial.firebaseapp.com",
+    databaseURL: "https://tempit-initial.firebaseio.com",
+    projectId: "tempit-initial",
+    storageBucket: "tempit-initial.appspot.com",
+    messagingSenderId: "728716820991"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src = "../static/style/index.js"></script>
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+var modal2 = document.getElementById('id02');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+      if (event.target == modal2) {
+        modal2.style.display = "none";
+      }
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+     
+    
+}
+</script>
+</div>
+
+
+<script>
+  function openCity(evt, cityName, content, links) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName(content);
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName(links);
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  function showFirst(id, links, login){
+    document.getElementById(id).style.display='block';
+    document.getElementById(login).style.display= 'block';
+    types = document.getElementsByClassName(links);
+    types[0].className+= " active";
+    types[1].className = types[1].className.replace(" active", "");
+  }
+</script>
+    
+
+<div class = "big_text">
+  <p> What is TempIT?</p>
+</div>
+<div class = "description_paragraph">
+  <h3 class = "description_header">Students</h3>
+  <p>TempIT connects part-time workers with companies to make it easy for students to find work that fits with their busy schedules.
+  Simply sign up as a student, then find work at a time that suits you!</p>
+  <h3 class = "description_header">Companies</h3>
+  <p>TempIT makes it simple for businesses to find part-time workers. It's as easy as signing up and posting shifts and part-time positions for students to take up!</p>
+</div>
+<!-- <button onclick = "debug()"></button> -->
+</body>
+
+<footer><p id = "copyright"> TempIT &copy 2018 </p></footer>
+</html>
